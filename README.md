@@ -1,47 +1,58 @@
-# Aura Downloader Pro - Portable Version
+# Aura Downloader Pro v1.0.2
 
-## About
-Aura Downloader Pro is a powerful YouTube video and audio downloader with a modern GUI interface. It allows you to download videos in various qualities or extract audio as MP3 files.
+A powerful, modern desktop download manager built with Python and CustomTkinter.  
+Download videos, audio, software, images, and any file — from YouTube and any URL.
 
-## How to Use Portable Version
-1. Extract all files to any folder on your computer or USB drive
-2. Double-click on "AuraDownloaderPro.exe" to run the application
-3. The first time you run it, Windows SmartScreen may show a warning - click "More info" then "Run anyway"
+![Aura Downloader Pro](aura-downloder-pro.png)
 
 ## Features
-- Download YouTube videos in various qualities
-- Extract audio as MP3 files
-- Modern GUI interface
-- Portable - no installation required
-- Works on any Windows computer
 
-## System Requirements
-- Windows 7 or higher
-- Internet connection for downloading content
+- **Universal Downloads** — YouTube videos/audio, software (.exe, .zip), movies, images, and any direct file URL
+- **Accelerated Downloads** — Files are split into 8 parallel chunks and stitched back together for maximum speed
+- **Multi-File Queue** — Download up to 3 files simultaneously with individual progress tracking
+- **Pause / Resume / Cancel** — Full control over every download in the queue
+- **Clipboard Link Catcher** — Automatically detects copied URLs and saves them in a side panel notepad
+- **Quality Selector** — Choose from all available video/audio qualities for YouTube and supported sites
+- **Smart URL Detection** — Automatically identifies YouTube links, direct files, and generic URLs
+- **Playlist Stripping** — YouTube playlist parameters are automatically removed to focus on the single video
+- **Windows Notifications** — Toast notifications for download start/complete events
+- **Custom Logo & Icon** — Branded with the Aura Downloader Pro logo
 
-## How to Use
-1. Copy a YouTube URL and paste it into the input field
-2. Click "Fetch Qualities" to retrieve available video/audio options
-3. Select your preferred quality or choose "Audio Only (MP3)" to download just the audio
-4. Choose your download location using the "Browse" button
-5. Click the quality button to start downloading
+## Requirements
 
-## Important Notes
-- For MP3 conversion functionality, you may need to install FFmpeg separately if you encounter errors
-- The application is completely portable - you can move the entire folder anywhere
-- No administrator privileges required to run
-- All settings are stored locally in the application folder
+- Python 3.8+
+- Windows 10/11 (for notifications)
+- FFmpeg (optional, required for MP3 conversion)
 
-## Troubleshooting
-- If the application doesn't start, ensure you have Windows Visual C++ Redistributables installed
-- For download issues, check your internet connection and firewall settings
-- Some videos may not be downloadable due to YouTube restrictions
+## Installation
 
-## FFmpeg for Audio Conversion
-If you want to convert videos to MP3, you may need to install FFmpeg:
-1. Download FFmpeg from https://www.ffmpeg.org/download.html
-2. Extract it to a folder
-3. Add the folder to your system PATH environment variable
+```bash
+pip install -r requirements.txt
+python main.py
+```
 
-## Support
-If you encounter issues, please contact the developer or submit an issue on the project repository.
+## Dependencies
+
+- `yt-dlp` — Video/audio extraction from 1000+ sites
+- `customtkinter` — Modern themed GUI toolkit
+- `requests` — HTTP downloads with Range header support
+- `Pillow` — Image processing for logo/icon
+
+## Build Standalone EXE
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile --windowed --icon=aura_icon.ico --add-data "aura-downloder-pro.png;." --name "AuraDownloaderPro" main.py
+```
+
+## Version History
+
+| Version | Changes |
+|---------|---------|
+| 1.0.2   | Pause/Resume/Cancel, solid dark UI, playlist stripping, chunked downloads |
+| 1.0.1   | Multi-file queue, clipboard notepad, universal downloads, logo |
+| 1.0.0   | Initial YouTube downloader with quality selection |
+
+## License
+
+MIT License — see [LICENSE](LICENSE) for details.
